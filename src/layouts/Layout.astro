@@ -1,0 +1,37 @@
+---
+import { Body } from '../components/Body';
+import { Header } from '../components/Header';
+
+import { ToggleMode } from '../components/ToggleMode';
+
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+
+    <Body client:load>
+        <div slot="body">
+            <Header client:load />
+        </div>
+    </Body>
+
+    <style is:global>
+        body {
+            margin: 0;
+            padding: 0;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+    </style>
+</html>
