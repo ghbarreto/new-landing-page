@@ -1,15 +1,25 @@
 import { useStore } from '@nanostores/react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 
-import { returnMode, isDarkMode } from '../themeMode';
-import bodyStyles from './Body.module.css';
+import { isDarkMode } from '../themeMode';
+
+const queryClient = new QueryClient();
 
 export const Body = (props: any) => {
     const $isDarkMode = useStore(isDarkMode);
-    const theme = returnMode($isDarkMode);
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['repoData'],
+        queryFn: () => fetch('https://api.github.com/repos/tannerlinsley/react-query').then(res => res.json()),
+    });
 
     return (
-        <div style={{ backgroundColor: theme.background }} className={bodyStyles.body}>
-            <div slot="body">{props.body}</div>
-        </div>
+        <QueryClientProvider client={queryClient}>
+            <div className={$isDarkMode ? 'dark' : ''}>
+                <div slot="body">{props.body}</div>
+                asdasdasd
+                {isLoading ? 'Loading' : 'loaded'}
+            </div>
+        </QueryClientProvider>
     );
 };
