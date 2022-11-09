@@ -1,10 +1,26 @@
 ---
 import { Body } from '../components/Body';
 import { Header } from '../components/Header';
+import Loading from '../templates/Loading.astro';
 
 export interface Props {
     title: string;
 }
+
+let data: any, err, isLoading;
+await fetch(`${import.meta.env.GITHUB_WEBSITE}users/${import.meta.env.GITHUB_USER_NAME}`, {
+    method: 'GET',
+    headers: { authorization: `token ${import.meta.env.GITHUB_TOKEN}` },
+})
+    .then(async res => {
+        const retrievedData = await res.json();
+        isLoading = false;
+        return (data = retrievedData);
+    })
+    .catch(error => {
+        isLoading = false;
+        return (err = error);
+    });
 
 const { title } = Astro.props;
 ---
@@ -17,19 +33,20 @@ const { title } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-
-    <Body client:load >
+    <Body client:load>
         <div slot="body">
             <Header client:load />
+            {
+                isLoading ? (
+                    <Loading />
+                ) : (
+                    <div>
+                        {data.name}
+                        <img src={data.avatar_url} alt={data.name} />
+                        Location: {data.location}
+                    </div>
+                )
+            }
         </div>
     </Body>
-
-    <style is:global>
-        body {
-            margin: 0;
-            padding: 0;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-    </style>
 </html>
