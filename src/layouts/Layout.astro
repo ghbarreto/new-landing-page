@@ -2,25 +2,12 @@
 import { Body } from '../components/Body';
 import { Header } from '../components/Header';
 import Loading from '../templates/Loading.astro';
-
+import { fetchHelper } from '../utils/fetch';
 export interface Props {
     title: string;
 }
 
-let data: any, err, isLoading;
-await fetch(`${import.meta.env.GITHUB_WEBSITE}users/${import.meta.env.GITHUB_USER_NAME}`, {
-    method: 'GET',
-    headers: { authorization: `token ${import.meta.env.GITHUB_TOKEN}` },
-})
-    .then(async res => {
-        const retrievedData = await res.json();
-        isLoading = false;
-        return (data = retrievedData);
-    })
-    .catch(error => {
-        isLoading = false;
-        return (err = error);
-    });
+const { isLoading, data, err }: any = await fetchHelper('users');
 
 const { title } = Astro.props;
 ---
@@ -41,12 +28,17 @@ const { title } = Astro.props;
                     <Loading />
                 ) : (
                     <div>
-                        {data.name}
+                        <div class="bg-white dark:bg-slate-500">{data.name}</div>
                         <img src={data.avatar_url} alt={data.name} />
                         Location: {data.location}
                     </div>
                 )
             }
+            <footer>this is a footer</footer>
         </div>
     </Body>
+
+    <!-- // {data.name}
+// <img src={data.avatar_url} alt={data.name} />
+// Location: {data.location} -->
 </html>
