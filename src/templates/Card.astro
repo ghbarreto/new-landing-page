@@ -1,0 +1,9 @@
+---
+const { data } = Astro.props;
+---
+
+<div>
+    <div class="bg-white dark:bg-slate-500">{data.name}</div>
+    <img src={data.avatar_url} alt={data.name} />
+    Location: {data.location}
+</div>
