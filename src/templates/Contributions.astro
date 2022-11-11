@@ -1,0 +1,45 @@
+---
+const { data } = Astro.props;
+---
+
+<style>
+    .__columns {
+        columns: 55;
+        column-gap: 4px;
+    }
+</style>
+
+<div class="__columns max-w-4xl">
+    {
+        Object.keys(data).map((item: any, index) => {
+            const nextColumn = index % 6 === 0;
+            const o = Object.keys(data[item]);
+            const v: any = Object.values(data[item]);
+
+            const colorHelper = (num: number) => {
+                switch (true) {
+                    case num > 0 && num <= 2:
+                        return 'bg-purple-400 dark:bg-red-400';
+                    case num >= 2 && num <= 4:
+                        return 'bg-purple-500 dark:bg-red-500';
+                    case num >= 5 && num <= 7:
+                        return 'bg-purple-600 dark:bg-red-600';
+                    case num > 7:
+                        return 'bg-purple-800 dark:bg-red-800';
+                    default:
+                        return 'bg-white';
+                }
+            };
+
+            return (
+                <div
+                    class={`font-bold border-2 w-4 h-4 aspect-square border-slate-400 rounded-full dark:border-slate-300 drop-shadow-md ${colorHelper(
+                        v
+                    )}`}
+                >
+                    <div class="invisible">{v}</div>
+                </div>
+            );
+        })
+    }
+</div>

@@ -3,6 +3,9 @@ module.exports = {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     darkMode: 'class',
     theme: {
+        fontFamily: {
+            sans: 'Comic Sans MS, Comic Sans, cursive',
+        },
         extend: {},
     },
     plugins: [],
