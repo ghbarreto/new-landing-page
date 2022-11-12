@@ -1,4 +1,5 @@
 ---
+import { Tooltip } from '../components/Tooltip';
 const { data } = Astro.props;
 ---
 
@@ -7,14 +8,25 @@ const { data } = Astro.props;
         columns: 55;
         column-gap: 4px;
     }
+
+    @media (max-width: 800px) {
+        .hide-mobile {
+            display: none;
+        }
+
+        .__columns {
+            columns: 18;
+            column-gap: 1rem;
+        }
+    }
 </style>
 
 <div class="__columns max-w-4xl">
     {
         Object.keys(data).map((item: any, index) => {
-            const nextColumn = index % 6 === 0;
             const o = Object.keys(data[item]);
             const v: any = Object.values(data[item]);
+            const isDesktop = index > 260;
 
             const colorHelper = (num: number) => {
                 switch (true) {
@@ -32,14 +44,23 @@ const { data } = Astro.props;
             };
 
             return (
-                <div
-                    class={`font-bold border-2 w-4 h-4 aspect-square border-slate-400 rounded-full dark:border-slate-300 drop-shadow-md ${colorHelper(
-                        v
-                    )}`}
-                >
-                    <div class="invisible">{v}</div>
-                </div>
+                <>
+                    <Tooltip tooltipValues={v} index={index} date={o} />
+
+                    <div
+                        data-tooltip-target={`tooltip-default-${index}`}
+                        class={`${
+                            !isDesktop ? 'hide-mobile' : ''
+                        } font-bold border-2 w-4 h-4 aspect-square border-slate-400 rounded-full dark:border-slate-300 drop-shadow-md 
+					${colorHelper(v)}`}
+                    >
+                        <div class="invisible" data-tooltip-target="tooltip-default">
+                            {v}
+                        </div>
+                    </div>
+                </>
             );
         })
     }
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </div>
