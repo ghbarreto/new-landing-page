@@ -1,0 +1,18 @@
+export const txt = {
+    contribution: 'contribution',
+    contributions: 'contributions',
+    on: 'on',
+    jan: 'Jan',
+    feb: 'Feb',
+    mar: 'Mar',
+    apr: 'Apr',
+    may: 'May',
+    jun: 'June',
+    jul: 'July',
+    aug: 'Aug',
+    sep: 'Sep',
+    oct: 'Oct',
+    nov: 'Nov',
+    dec: 'Dec',
+    contributions_last_year: 'contributions in the last year',
+};
