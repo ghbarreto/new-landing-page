@@ -6,11 +6,11 @@ const { isLoading, data, error } = Astro.props;
 ---
 
 <style>
+    /* TODO Fix media queries inside tailwind config file */
     .__columns {
         columns: 55;
         column-gap: 4px;
     }
-
     @media (max-width: 800px) {
         .hide-mobile {
             display: none;
