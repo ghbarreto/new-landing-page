@@ -8,7 +8,7 @@ import Contributions from '../templates/Contributions.astro';
 export interface Props {
     title: string;
 }
-
+// todo remove loading states since its a ssr app
 const { isLoading, data, err }: any = await fetchHelper('users');
 const { isLoading: isLoadingContributions, data: contributionData, err: error }: any = await fetchContributions('a');
 const { title } = Astro.props;

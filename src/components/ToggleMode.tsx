@@ -9,6 +9,7 @@ export const ToggleMode = () => {
             onClick={() => {
                 setIsDarkMode(!isDarkMode);
                 localStorage.setItem('themeMode', `${!isDarkMode}`);
+				
             }}
         >
             Toggle
