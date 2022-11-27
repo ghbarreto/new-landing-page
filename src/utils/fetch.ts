@@ -25,7 +25,26 @@ export const fetchContributions = async (endpoint: string) => {
         err,
         data;
 
-    await fetch('http://localhost:3030/api')
+    await fetch('http://localhost:3030/api/contributions')
+        .then(async res => {
+            const retrievedData = await res.json();
+            isLoading = false;
+            return (data = retrievedData);
+        })
+        .catch(error => {
+            isLoading = false;
+            return (err = error);
+        });
+
+    return { isLoading, err, data };
+};
+
+export const fetchContribution = async () => {
+    let isLoading = true,
+        err,
+        data;
+
+    await fetch('http://localhost:3030/api/contribution')
         .then(async res => {
             const retrievedData = await res.json();
             isLoading = false;
