@@ -1,3 +1,5 @@
+// Remove all this nonsense below
+
 export const fetchHelper = async (endpoint: string) => {
     let isLoading = true,
         err,
@@ -25,7 +27,7 @@ export const fetchContributions = async (endpoint: string) => {
         err,
         data;
 
-    await fetch('http://localhost:3030/api/contributions')
+    await fetch(`http://localhost:3030/api/contributions`)
         .then(async res => {
             const retrievedData = await res.json();
             isLoading = false;
@@ -39,12 +41,19 @@ export const fetchContributions = async (endpoint: string) => {
     return { isLoading, err, data };
 };
 
-export const fetchContribution = async () => {
+export const fetchContributionHistory = async (body: any) => {
     let isLoading = true,
         err,
         data;
 
-    await fetch('http://localhost:3030/api/contribution')
+    await fetch(`http://localhost:3030/api/contribution/history`, {
+        method: 'POST',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    })
         .then(async res => {
             const retrievedData = await res.json();
             isLoading = false;
