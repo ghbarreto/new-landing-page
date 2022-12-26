@@ -4,13 +4,13 @@ const { text, customClasses, type } = Astro.props;
 const textType = (type: 'bold' | 'body') => {
     switch (type) {
         case 'bold':
-            return 'text-lg font-bold';
+            return 'text-lg font-bold ';
         default:
-            return;
+            return '';
     }
 };
 ---
 
-<p class={`text-bg_dark dark:text-bg_white ${customClasses} ${textType(type)}`}>
+<p class={`text-bg_dark dark:text-bg_white font-montserrat ${customClasses ?? ''} ${textType(type)}`}>
     {text}
 </p>

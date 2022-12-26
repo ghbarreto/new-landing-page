@@ -1,11 +1,12 @@
 ---
 import Tooltip from './Tooltip.astro';
 import { Square } from '../components/Square';
+import Text from '../templates/Text.astro';
 
 const { data } = Astro.props;
 ---
 
-<div class="columns-55 mobile:columns-24 gap-x-0.5 max-w-4xl">
+<div class="columns-55 mobile:columns-24 gap-x-0.5 max-w-4xl block">
     {
         Object.keys(data).map((item: any, index) => {
             const o = Object.keys(data[item]);

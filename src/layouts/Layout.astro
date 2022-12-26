@@ -25,7 +25,19 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <link rel="icon" href="/logo.png" type="image/x-icon" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://css.gg/css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap"
+            rel="stylesheet"
+        />
         <title>{title}</title>
+        <style>
+            :root {
+                --ggs: 0.8;
+            }
+        </style>
     </head>
 
     <Body client:load>
@@ -35,7 +47,7 @@ const { title } = Astro.props;
                 isLoading || !data ? (
                     <Loading />
                 ) : (
-                    <section class="flex justify-center">
+                    <section>
                         <Card data={data} />
                     </section>
                 )
@@ -46,11 +58,8 @@ const { title } = Astro.props;
                     <Loading />
                 ) : (
                     <>
-                        <section class="block mx-auto w-5/6">
-                            <Text
-                                customClasses="ml-1"
-                                text={`${contributionData.last_year_contribution} contributions in the last year. on @github`}
-                            />
+                        <Text text="@github " />
+                        <section class="flex justify-center">
                             <div>
                                 <Contributions
                                     isLoading={isLoadingContributions}
@@ -60,6 +69,7 @@ const { title } = Astro.props;
                                 />
                             </div>
                         </section>
+                        <Text text={`${contributionData.last_year_contribution} contributions in the last year.`} />
                     </>
                 )
             }

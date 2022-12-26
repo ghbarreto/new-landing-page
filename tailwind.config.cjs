@@ -30,6 +30,9 @@ module.exports = {
                 55: '55',
                 24: '24',
             },
+            fontFamily: {
+                montserrat: "'Montserrat', sans-serif",
+            },
         },
     },
     plugins: [require('flowbite/plugin')],
