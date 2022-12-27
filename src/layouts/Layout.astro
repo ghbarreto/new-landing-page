@@ -57,20 +57,16 @@ const { title } = Astro.props;
                 isLoadingContributions || !contributionData ? (
                     <Loading />
                 ) : (
-                    <>
-                        <Text text="@github " />
-                        <section class="flex justify-center">
-                            <div>
-                                <Contributions
-                                    isLoading={isLoadingContributions}
-                                    data={contributionData.contributions}
-                                    error={error}
-                                    last_year={contributionData.last_year_contribution}
-                                />
-                            </div>
-                        </section>
-                        <Text text={`${contributionData.last_year_contribution} contributions in the last year.`} />
-                    </>
+                    <section class="flex justify-center">
+                        <div>
+                            <Contributions
+                                isLoading={isLoadingContributions}
+                                data={contributionData.contributions}
+                                error={error}
+                                last_year={contributionData.last_year_contribution}
+                            />
+                        </div>
+                    </section>
                 )
             }
             <ContributionHistory client:load />

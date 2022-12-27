@@ -6,20 +6,25 @@ const { data } = Astro.props;
 console.log(data);
 ---
 
-<div class="pb-5 p-5">
-    <div class="mt-3">
-        <Text type="bold" text={data.name} />
-    </div>
-    <img
-        src={data.avatar_url}
-        alt={data.name}
-        class="rounded-full w-72 border-2 border-highlight_300 shadow-lg shadow-highlight_300 dark:border-lightblue_600 dark:shadow-lightblue_600"
-    />
-    <div>
-        <Text text={data.bio} />
+<section class="pb-5 p-5">
+    <div class="flex">
+        <div class="w-3/6">
+            <img
+                src={data.avatar_url}
+                alt={data.name}
+                class="rounded-full w-72 border-2 border-highlight_300 shadow-lg shadow-highlight_300 dark:border-lightblue_600 dark:shadow-lightblue_600"
+            />
+
+            <Text text={data.bio} customClasses="ml-12 mt-5" type="italic" />
+        </div>
+        <div class="mt-3">
+            <Text text="Hello" />
+            <Text text="My name is: " />
+            <Text type="bold" text={data.name} />
+        </div>
     </div>
 
-    <div class="flex items-center">
+    <!-- <div class="flex items-center">
         <Text text={`Location: ${data.location}`} />
         <Icon src="/cn-flag.svg" />
     </div>
@@ -28,5 +33,5 @@ console.log(data);
     </div>
     <div class="flex items-center">
         <Text text={`Working ${data.company}`} />
-    </div>
-</div>
+    </div> -->
+</section>
