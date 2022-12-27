@@ -21,12 +21,10 @@ export const ContributionHistory = () => {
                     clicked_column: Number(column),
                 });
                 setIsLoading(false);
-                return setData(contribution);
+                setData(contribution);
             })();
         }
     }, [$square]);
-
-    console.log(data);
 
     return <div>{isLoading ? <Loading /> : <div dangerouslySetInnerHTML={{ __html: data?.inner_html }} />}</div>;
 };

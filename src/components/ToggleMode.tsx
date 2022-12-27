@@ -1,12 +1,14 @@
 import { useTheme } from '../hooks/theme';
 
 export const ToggleMode = () => {
-    const { isDarkMode, setIsDarkMode } = useTheme();
+    const { setIsDarkMode } = useTheme();
 
     return (
-        <div className="py-2 px-4 rounded transition-shadow">
-            <span className="flex align-center justify-end mr-10 mt-10">
-                <div className="bg-bg_dark dark:bg-bg_white flex rounded-full p-1 items-center">
+        <div className="py-2 px-4 rounded transition-shadow mr-10 mt-10">
+            <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
+                <img className="w-6 ml-5" src={'/logo.png'} />
+                <div className="flex items-center">
+                    <img src="/cn-flag.svg" className="w-6 mr-5" />
                     <i
                         onClick={() => {
                             setIsDarkMode(false);
@@ -19,10 +21,10 @@ export const ToggleMode = () => {
                             setIsDarkMode(true);
                             localStorage.setItem('themeMode', `${true}`);
                         }}
-                        className="gg-moon mr-1.5 ml-2 text-bg_white opacity-50 dark:opacity-100 dark:text-highlight_400 cursor-pointer"
+                        className="gg-moon mr-4 ml-2 text-bg_white opacity-50 dark:opacity-100 dark:text-highlight_400 cursor-pointer"
                     ></i>
                 </div>
-            </span>
+            </div>
         </div>
     );
 };

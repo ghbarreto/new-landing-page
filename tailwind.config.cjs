@@ -27,7 +27,7 @@ module.exports = {
         },
         extend: {
             columns: {
-                55: '55',
+                53: '53',
                 24: '24',
             },
             fontFamily: {

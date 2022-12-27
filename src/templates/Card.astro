@@ -1,9 +1,8 @@
 ---
-import Text from './Text.astro';
+import { Text } from '../components/Text';
 import Icon from './Icon.astro';
 
 const { data } = Astro.props;
-console.log(data);
 ---
 
 <section class="pb-5 p-5">
@@ -15,23 +14,32 @@ console.log(data);
                 class="rounded-full w-72 border-2 border-highlight_300 shadow-lg shadow-highlight_300 dark:border-lightblue_600 dark:shadow-lightblue_600"
             />
 
-            <Text text={data.bio} customClasses="ml-12 mt-5" type="italic" />
+            <Text client:load text={data.bio} customClasses="ml-12 mt-5" type="italic" />
+
+            <div class="flex items-center ml-12">
+                <Text client:load text="location" type="italic" />
+                <Text client:load text={data.location} type="italic" customClasses="ml-1" />
+                <Icon src="/cn-flag.svg" />
+            </div>
+
+            <!-- <div class="flex items-center ml-12 mb-20">
+                <Text text={`Blog: ${data.blog === '' ? 'under_construction' : data.blog}`} type="italic" />
+            </div> -->
         </div>
         <div class="mt-3">
-            <Text text="Hello" />
-            <Text text="My name is: " />
-            <Text type="bold" text={data.name} />
+            <Text client:load text="hello" type="header" customClasses="text-center" />
+
+            <span class="inline-flex items-center">
+                <Text client:load text="whoami" />
+                <Text client:load type="bold" text={data.name} customClasses="ml-1" />
+            </span>
+
+            <Text client:load text="about" />
+
+            <span class="inline-flex items-center">
+                <Text client:load text="company" type="link" href="https://fansunite.com/" />
+                <Text client:load text="role" customClasses="ml-1" />
+            </span>
         </div>
     </div>
-
-    <!-- <div class="flex items-center">
-        <Text text={`Location: ${data.location}`} />
-        <Icon src="/cn-flag.svg" />
-    </div>
-    <div class="flex items-center">
-        <Text text={`Blog: ${data.blog === '' ? 'Under Construction' : data.blog}`} type="bold" />
-    </div>
-    <div class="flex items-center">
-        <Text text={`Working ${data.company}`} />
-    </div> -->
 </section>
