@@ -24,5 +24,5 @@ export const useTranslation = () => {
         }
     };
 
-    return langHelper;
+    return { langHelper, lang };
 };

@@ -1,14 +1,27 @@
+import { useTranslation } from '../hooks/lang';
 import { useTheme } from '../hooks/theme';
 
 export const Header = () => {
     const { setIsDarkMode } = useTheme();
+    const { lang } = useTranslation();
+
+    const correctFlag = () => {
+        switch (lang) {
+            case 'en':
+                return '/uk.svg';
+            case 'pt':
+                return '/pt.svg';
+            default:
+                return '';
+        }
+    };
 
     return (
         <div className="py-2 px-4 rounded transition-shadow mr-10 mt-10">
             <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
                 <img className="w-6 ml-5" src={'/logo.png'} />
                 <div className="flex items-center">
-                    <img src="/cn-flag.svg" className="w-6 mr-5" />
+                    <img src={correctFlag()} className="w-6 mr-5" />
                     <i
                         onClick={() => {
                             setIsDarkMode(false);
