@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { en, pt, es } from '../lang';
 
 export const useTranslation = () => {
-    const [lang, setLang] = useState('');
+    const [lang, setLang] = useState<'en' | 'es' | 'pt' | '' | string>('');
 
     useEffect(() => {
         if (globalThis) {
