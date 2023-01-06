@@ -21,4 +21,5 @@ export const pt = {
     company: 'FansUnite',
     role: 'como um Front-end developer',
     location: 'Localização',
+    flag_message: 'Translated to Portuguese because of browser preferences',
 };

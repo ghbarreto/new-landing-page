@@ -21,4 +21,5 @@ export const en = {
     company: '@FansUnite',
     role: 'as a Front-end developer',
     location: 'Location',
+    flag_message: 'Translated to English because of browser preferences',
 };

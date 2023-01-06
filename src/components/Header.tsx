@@ -1,5 +1,7 @@
 import { useTranslation } from '../hooks/lang';
 import { useTheme } from '../hooks/theme';
+import { Tooltip } from './Tooltip';
+import { Text } from './Text';
 
 export const Header = () => {
     const { setIsDarkMode } = useTheme();
@@ -19,9 +21,15 @@ export const Header = () => {
     return (
         <div className="py-2 px-4 rounded transition-shadow mr-10 mt-10">
             <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
-                <img className="w-6 ml-5" src={'/logo.png'} />
+                <img className="w-6 ml-5" src="/logo.png" />
                 <div className="flex items-center">
-                    <img src={correctFlag()} className="w-6 mr-5" />
+                    <Tooltip text={<Text text="flag_message" type="tooltip" />} />
+                    <img
+                        src={correctFlag()}
+                        className="w-6 mr-5"
+                        id="tooltip-country"
+                        data-tooltip-target="tooltip-country"
+                    />
                     <i
                         onClick={() => {
                             setIsDarkMode(false);

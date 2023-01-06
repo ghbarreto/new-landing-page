@@ -1,6 +1,6 @@
 import { T } from './Lang';
 
-type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link';
+type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link' | 'tooltip';
 
 const textType = (type: TextType) => {
     switch (type) {
