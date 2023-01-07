@@ -7,8 +7,8 @@ const { data } = Astro.props;
 ---
 
 <section class="pb-5 p-5">
-    <div class="flex">
-        <div class="w-3/6">
+    <div class="flex mobile:block">
+        <div class="w-3/6 mobile:my-0 mobile:mx-auto">
             <img
                 src={data.avatar_url}
                 alt={data.name}
@@ -30,7 +30,7 @@ const { data } = Astro.props;
                 <Text client:load text="role" customClasses="ml-1" />
             </span>
 
-            <div class="flex justify-center mb-20 mt-5 gap-5">
+            <div class="flex justify-center mb-20 mt-5 gap-5 mobile:mb-3">
                 <Links title="Linkedin" href="https://www.linkedin.com" icon="gg-work-alt" />
                 <Links title="Resume" href="https://github.com" icon="gg-file-document" />
             </div>

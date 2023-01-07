@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 
 import { Loading } from './Loading';
 import { square } from '../store/square';
 import { fetchContributionHistory } from '../utils/fetch';
+import { Text } from './Text';
 
 export const ContributionHistory = () => {
     const $square = useStore(square);
@@ -26,5 +27,33 @@ export const ContributionHistory = () => {
         }
     }, [$square]);
 
-    return <div>{isLoading ? <Loading /> : <div dangerouslySetInnerHTML={{ __html: data?.inner_html }} />}</div>;
+    return (
+        <div className="flex justify-center mt-7">
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <section>
+                    {data &&
+                        Object.values(data).map(e => {
+                            return (
+                                <div>
+                                    {Object.entries(e).map(v => {
+                                        const [key, value] = v;
+                                        const isHeader = key.split('_')[0] === 'header';
+
+                                        return (
+                                            <Text
+                                                type={isHeader ? `bold` : `italic`}
+                                                customClasses={`${!isHeader && 'ml-5'} text-start`}
+                                                text={value}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            );
+                        })}
+                </section>
+            )}
+        </div>
+    );
 };

@@ -4,12 +4,12 @@ import { Square } from '../components/Square';
 const { data } = Astro.props;
 ---
 
-<div class="columns-53 mobile:columns-24 gap-x-0.5 max-w-4xl block">
+<div class="columns-53 gap-x-0.5 max-w-4xl block mobile:columns-20">
     {
         Object.keys(data).map((item: any, index) => {
             const o = Object.keys(data[item]);
             const value: any = Object.values(data[item]);
-            const isDesktop = index > 200;
+            const isDesktop = index > 240;
 
             return (
                 <>

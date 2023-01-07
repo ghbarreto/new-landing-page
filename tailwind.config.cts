@@ -28,7 +28,7 @@ module.exports = {
         extend: {
             columns: {
                 53: '53',
-                24: '24',
+                20: '20',
             },
             fontFamily: {
                 montserrat: "'Montserrat', sans-serif",

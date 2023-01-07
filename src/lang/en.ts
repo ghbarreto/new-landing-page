@@ -22,4 +22,5 @@ export const en = {
     role: 'as a Front-end developer',
     location: 'Location',
     flag_message: 'Translated to English because of browser preferences',
+    last_year_contribution: 'Contributions in the last year',
 };
