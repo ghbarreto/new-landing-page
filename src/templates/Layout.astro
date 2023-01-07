@@ -1,15 +1,15 @@
 ---
 import { Body } from '../components/Body';
 import { Header } from '../components/Header';
-import Loading from '../templates/Loading.astro';
+import Loading from './Loading.astro';
 import { fetchHelper, fetchContributions } from '../utils/fetch';
-import Card from '../templates/Card.astro';
-import Contributions from '../templates/Contributions.astro';
-import Links from '../templates/Links.astro';
+import Card from './Card.astro';
+import Contributions from './Contributions.astro';
+import Links from './Links.astro';
 import { ContributionHistory } from '../components/ContributionHistory';
 import { Text } from '../components/Text';
 import { BsGithub } from 'react-icons/bs';
-import { IconContext } from 'react-icons';
+
 export interface Props {
     title: string;
 }
@@ -67,19 +67,12 @@ const { title } = Astro.props;
                                     <BsGithub className="text-highlight_600 dark:text-lightblue_300 ml-3" />
                                     <Text text={'last_year_contribution'} customClasses="ml-1" />
                                 </span>
-                                <Contributions
-                                    isLoading={isLoadingContributions}
-                                    data={contributionData.contributions}
-                                    error={error}
-                                    last_year={contributionData.last_year_contribution}
-                                />
+                                <Contributions data={contributionData.contributions} />
                             </div>
                         </section>
                     )
                 }
                 <ContributionHistory client:load />
-
-                <!-- <footer>this is a footer</footer> -->
             </main>
         </Body>
     </body>

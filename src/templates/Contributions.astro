@@ -7,13 +7,13 @@ const { data } = Astro.props;
 <div class="columns-53 gap-x-0.5 max-w-4xl block mobile:columns-20">
     {
         Object.keys(data).map((item: any, index) => {
-            const o = Object.keys(data[item]);
+            const o: any = Object.keys(data[item]);
             const value: any = Object.values(data[item]);
             const isDesktop = index > 240;
 
             return (
                 <>
-                    <Tooltip tooltipValues={value} index={index} date={o} />
+                    <Tooltip value={value} index={index} target={`tooltip-default-${index}`} date={o} />
                     <Square client:load index={index} value={value} isDesktop={isDesktop} />
                 </>
             );

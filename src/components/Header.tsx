@@ -1,7 +1,7 @@
-import { useTranslation } from '../hooks/lang';
-import { useTheme } from '../hooks/theme';
+import { useTranslation } from '../hooks/use-lang';
+import { useTheme } from '../hooks/use-theme';
 import { Tooltip } from './Tooltip';
-import { Text } from './Text';
+import { T } from './Lang';
 
 export const Header = () => {
     const { setIsDarkMode } = useTheme();
@@ -23,7 +23,7 @@ export const Header = () => {
             <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
                 <img className="w-6 ml-5" src="/logo.png" />
                 <div className="flex items-center">
-                    <Tooltip target="tooltip-country" text={<Text text="flag_message" type="tooltip" />} />
+                    <Tooltip target="tooltip-country" text={<T translation="flag_message" />} />
                     <img
                         src={correctFlag()}
                         className="w-6 mr-5"

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useTranslation } from '../hooks/lang';
+import { useTranslation } from '../hooks/use-lang';
 
 export const T = ({ translation }: { translation: string }) => {
     const { langHelper }: any = useTranslation();

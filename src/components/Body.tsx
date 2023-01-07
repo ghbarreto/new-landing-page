@@ -1,4 +1,4 @@
-import { useTheme } from '../hooks/theme';
+import { useTheme } from '../hooks/use-theme';
 
 export const Body = (props: any) => {
     return (
