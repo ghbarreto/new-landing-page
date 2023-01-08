@@ -1,0 +1,14 @@
+---
+import { SiTailwindcss } from 'react-icons/si';
+import { SiTypescript } from 'react-icons/si';
+import { Text } from '../components/Text';
+---
+
+<span class="block items-center">
+    <Text type="footer" text="Powered by" customClasses="text-bg_white text-center" />
+    <span class="flex mb-1">
+        <SiTailwindcss className="text-bg_white dark:text-bg_dark w-4 h-4 ml-3" />
+        <SiTypescript className="text-bg_white dark:text-bg_dark w-4 h-4 ml-3" />
+        <img src={'/astro.svg'} class="w-5 mr-5 bg-bg_white rounded-full ml-3" />
+    </span>
+</span>

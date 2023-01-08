@@ -1,6 +1,6 @@
-import { T } from './Lang';
+import { T } from '../lang';
 
-type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link';
+type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link' | 'footer';
 
 const textType = (type: TextType) => {
     switch (type) {
@@ -10,6 +10,8 @@ const textType = (type: TextType) => {
             return 'text-lg font-bold';
         case 'italic':
             return 'text-sm font-italic';
+        case 'footer':
+            return 'text-sm font-italic text-bg_white dark:text-bg_dark';
         case 'link':
             return 'text-highlight_400 dark:text-lightblue_600 cursor-pointer font-semibold';
         default:
@@ -19,7 +21,7 @@ const textType = (type: TextType) => {
 
 export const Text = ({ text, customClasses, type, href }: any) => {
     return (
-        <p className={`text-bg_dark dark:text-bg_white font-montserrat ${customClasses ?? ''} ${textType(type)}`}>
+        <p className={`font-montserrat ${customClasses ?? ''} ${textType(type)}`}>
             {type === 'link' ? (
                 <a className={textType(type)} href={href} target="_blank">
                     <T translation={text} />

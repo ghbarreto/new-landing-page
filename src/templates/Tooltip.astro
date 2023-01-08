@@ -1,8 +1,8 @@
 ---
-import { T } from '../components/Lang';
+import { T } from '../lang';
 import { dateFormat } from '../utils/date_format';
 
-const { value, date, target } = Astro.props;
+const { value, date, target, isContributions } = Astro.props;
 ---
 
 <div
@@ -11,9 +11,17 @@ const { value, date, target } = Astro.props;
     data-tooltip-target={target}
     class="inline-block absolute invisible z-10 py-2 px-3 text-sm bg-highlight_300 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-lightblue_500"
 >
-    {value}
-    {Number(value) !== 1 ? <T translation="contributions" /> : <T translation="contribution" />}
-    <T translation="on" />
-    {dateFormat(date)}
+    {
+        isContributions ? (
+            <span>
+                {value}
+                {Number(value) !== 1 ? <T translation="contributions" /> : <T translation="contribution" />}
+                <T translation="on" />
+                {dateFormat(date)}
+            </span>
+        ) : (
+            value
+        )
+    }
     <div class="tooltip-arrow" data-popper-arrow></div>
 </div>

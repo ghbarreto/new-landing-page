@@ -1,7 +1,7 @@
 import { useTranslation } from '../hooks/use-lang';
 import { useTheme } from '../hooks/use-theme';
 import { Tooltip } from './Tooltip';
-import { T } from './Lang';
+import { T } from '../lang';
 
 export const Header = () => {
     const { setIsDarkMode } = useTheme();
@@ -19,7 +19,7 @@ export const Header = () => {
     };
 
     return (
-        <div className="py-2 px-4 rounded transition-shadow mr-10 mt-10 mobile:mr-0">
+        <div className="py-2 px-4 transition-shadow mr-10 mt-10 mobile:mr-0">
             <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
                 <img className="w-6 ml-5" src="/logo.png" />
                 <div className="flex items-center">

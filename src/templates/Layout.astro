@@ -5,10 +5,12 @@ import Loading from './Loading.astro';
 import { fetchHelper, fetchContributions } from '../utils/fetch';
 import Card from './Card.astro';
 import Contributions from './Contributions.astro';
-import Links from './Links.astro';
+import Social from './Social.astro';
+import Tools from './Tools.astro';
 import { ContributionHistory } from '../components/ContributionHistory';
 import { Text } from '../components/Text';
 import { BsGithub } from 'react-icons/bs';
+import { Tooltip } from '../components/Tooltip';
 
 export interface Props {
     title: string;
@@ -74,6 +76,13 @@ const { title } = Astro.props;
                 }
                 <ContributionHistory client:load />
             </main>
+            <section slot="footer" class="w-full mr-4">
+                <div class="flex justify-between">
+                    <Tools />
+                    <Social />
+                    <div>{null}</div>
+                </div>
+            </section>
         </Body>
     </body>
 </html>

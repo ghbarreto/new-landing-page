@@ -13,7 +13,7 @@ const { data } = Astro.props;
 
             return (
                 <>
-                    <Tooltip value={value} index={index} target={`tooltip-default-${index}`} date={o} />
+                    <Tooltip isContributions value={value} index={index} target={`tooltip-default-${index}`} date={o} />
                     <Square client:load index={index} value={value} isDesktop={isDesktop} />
                 </>
             );

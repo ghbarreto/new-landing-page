@@ -1,0 +1,19 @@
+---
+import { BsGithub } from 'react-icons/bs';
+import { AiFillLinkedin } from 'react-icons/ai';
+import { Tooltip } from '../components/Tooltip';
+---
+
+<span class="flex items-center">
+    <a href="https://github.com/" class="cursor:pointer" data-tooltip-target={'tooltip-github'}>
+        <BsGithub className="text-bg_white dark:text-bg_dark w-6 h-6" />
+        <Tooltip text="github" target="tooltip-github" />
+    </a>
+    <a href="https://github.com/" class="cursor:pointer">
+        <AiFillLinkedin
+            className="text-bg_white dark:text-bg_dark ml-5 w-7 h-7"
+            data-tooltip-target={'tooltip-linkedin'}
+        />
+        <Tooltip text="linkedin" target="tooltip-linkedin" />
+    </a>
+</span>

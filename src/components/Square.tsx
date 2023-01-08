@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { colorHelper } from '../utils/color_helper';
 import { square } from '../store/square';
 
