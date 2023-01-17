@@ -23,22 +23,18 @@ export const fetchHelper = async (endpoint: string) => {
 };
 
 export const fetchContributions = async (endpoint: string) => {
-    let isLoading = true,
-        err,
-        data;
+    let err, data;
 
     await fetch(`http://localhost:3030/api/contributions`)
         .then(async res => {
             const retrievedData = await res.json();
-            isLoading = false;
             return (data = retrievedData);
         })
         .catch(error => {
-            isLoading = false;
             return (err = error);
         });
 
-    return { isLoading, err, data };
+    return { err, data };
 };
 
 export const fetchContributionHistory = async (body: any) => {

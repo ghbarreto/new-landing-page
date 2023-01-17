@@ -1,3 +1,5 @@
+// Hi, my name is Gabriel Barreto and I am currently a frontend developer at FansUnite Entertainment Inc. My focus is on test-driven development (TDD) and I have experience in full-stack web development using the MERN stack, as well as NextJS and Typescript. Throughout my career, I have consistently assisted development teams by writing unit-test codes and documenting API routes, with the goal of delivering new features and functionality.
+
 export const en = {
     on: 'on',
     jan: 'Jan',

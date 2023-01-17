@@ -8,11 +8,12 @@ export const Header = () => {
     const { lang } = useTranslation();
 
     const correctFlag = () => {
+        // https://hampusborgos.github.io/country-flags/
         switch (lang) {
             case 'en':
-                return '/uk.svg';
+                return '/ca.svg';
             case 'pt':
-                return '/pt.svg';
+                return '/br.svg';
             default:
                 return '';
         }
@@ -26,7 +27,7 @@ export const Header = () => {
                     <Tooltip target="tooltip-country" text={<T translation="flag_message" />} />
                     <img
                         src={correctFlag()}
-                        className="w-6 mr-5"
+                        className="w-7 mr-5"
                         id="tooltip-country"
                         data-tooltip-target="tooltip-country"
                     />
