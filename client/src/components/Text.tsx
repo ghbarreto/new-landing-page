@@ -1,15 +1,18 @@
 import { T } from '../lang';
 
-type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link' | 'footer';
+type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link' | 'footer' | 'body';
 
 const textType = (type: TextType) => {
+    const defaultTextType = `text-bg_dark dark:text-bg_white`;
     switch (type) {
         case 'header':
-            return 'text-2xl font-bold';
+            return `text-2xl font-bold ${defaultTextType}`;
+        case 'body':
+            return `text-base ${defaultTextType}`;
         case 'bold':
-            return 'text-lg font-bold';
+            return `text-lg font-bold ${defaultTextType}`;
         case 'italic':
-            return 'text-sm font-italic';
+            return `text-sm font-italic ${defaultTextType}`;
         case 'footer':
             return 'text-sm font-italic text-bg_white dark:text-bg_dark';
         case 'link':
@@ -21,7 +24,7 @@ const textType = (type: TextType) => {
 
 export const Text = ({ text, customClasses, type, href }: any) => {
     return (
-        <p className={`font-montserrat ${customClasses ?? ''} ${textType(type)}`}>
+        <p className={`font-montserrat ${textType(type)} ${customClasses ?? ''} `}>
             {type === 'link' ? (
                 <a className={textType(type)} href={href} target="_blank">
                     <T translation={text} />

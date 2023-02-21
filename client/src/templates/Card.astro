@@ -19,15 +19,15 @@ const { data } = Astro.props;
             <Text client:load text="hello" type="header" customClasses="text-center" />
 
             <span class="inline-flex items-center mt-5">
-                <Text client:load text="whoami" />
+                <Text client:load text="whoami" type="body"/>
                 <Text client:load type="bold" text={data.name} customClasses="ml-1" />
             </span>
 
-            <Text client:load text="about" />
+            <Text client:load text="about" type="body"/>
 
             <span class="inline-flex items-center">
                 <Text client:load text="company" type="link" href="https://fansunite.com/" />
-                <Text client:load text="role" customClasses="ml-1" />
+                <Text client:load text="role" customClasses="ml-1" type="body"/>
             </span>
 
             <div class="flex justify-center mt-5 mb-20 mt-5 gap-5 mobile:mb-3">

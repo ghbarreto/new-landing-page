@@ -32,11 +32,18 @@ export const ContributionHistory = () => {
             {isLoading ? (
                 <Loading />
             ) : (
-                <section>
+                <section className="inline-flex justify-around">
                     {data &&
-                        Object.values(data).map(e => {
+                        Object.values(data).map((e: any, index, arr) => {
+                            const lastArrElement = Boolean(arr.length - 1 === index);
+                            console.log(lastArrElement);
+                            const verticalBorder =
+                                arr.length > 1 && !lastArrElement
+                                    ? 'border-r-4 border-highlight_400 dark:border-lightblue_400'
+                                    : '';
+
                             return (
-                                <div>
+                                <div className={`ml-3 p-4 m-2 ${verticalBorder}`}>
                                     {Object.entries(e).map(v => {
                                         const [key, value] = v;
                                         const isHeader = key.split('_')[0] === 'header';
