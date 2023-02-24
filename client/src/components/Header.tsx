@@ -31,20 +31,22 @@ export const Header = () => {
                         id="tooltip-country"
                         data-tooltip-target="tooltip-country"
                     />
-                    <i
-                        onClick={() => {
-                            setIsDarkMode(false);
-                            localStorage.setItem('themeMode', `${false}`);
-                        }}
-                        className={`gg-sun ml-1.5 mr-2 text-highlight_300 dark:opacity-50  dark:text-bg_dark cursor-pointer`}
-                    ></i>
-                    <i
-                        onClick={() => {
-                            setIsDarkMode(true);
-                            localStorage.setItem('themeMode', `${true}`);
-                        }}
-                        className="gg-moon mr-4 ml-2 text-bg_white opacity-50 dark:opacity-100 dark:text-lightblue_600 cursor-pointer"
-                    ></i>
+                    <div className="bg-bg_white inline-flex p-1 rounded-full mr-3 items-center dark:bg-bg_dark">
+                        <i
+                            onClick={() => {
+                                setIsDarkMode(false);
+                                localStorage.setItem('themeMode', `${false}`);
+                            }}
+                            className={`gg-sun ml-1.5 mr-2 text-highlight_300 dark:opacity-50 dark:text-bg_white cursor-pointer`}
+                        ></i>
+                        <i
+                            onClick={() => {
+                                setIsDarkMode(true);
+                                localStorage.setItem('themeMode', `${true}`);
+                            }}
+                            className="gg-moon mr-2 ml-2 text-bg_dark opacity-50 dark:opacity-100 dark:text-lightblue_600 cursor-pointer"
+                        ></i>
+                    </div>
                 </div>
             </div>
         </div>
