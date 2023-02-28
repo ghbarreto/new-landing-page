@@ -8,9 +8,10 @@ import { Text } from './Text';
 
 export const ContributionHistory = () => {
     const $square = useStore(square);
-    const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState<any>();
-
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [data, setData] = useState<{
+        [T: string]: string;
+    }>();
     const [column, _remainder] = String(Number($square) / 7).split('.');
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export const ContributionHistory = () => {
     }, [$square]);
 
     return (
-        <div className="flex justify-center mt-7">
+        <div className="flex justify-center pb-4 mb-20">
             {isLoading ? (
                 <Loading />
             ) : (

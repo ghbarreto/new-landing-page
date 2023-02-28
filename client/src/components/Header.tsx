@@ -20,14 +20,14 @@ export const Header = () => {
     };
 
     return (
-        <div className="py-2 px-4 transition-shadow mr-10 mt-10 mobile:mr-0">
+        <div className="py-2 px-4 transition-shadow mr-10 mt-2 mobile:mr-0">
             <div className="bg-bg_dark dark:bg-bg_white flex h-12 justify-between rounded-full p-1 items-center">
                 <img className="w-6 ml-5" src="/logo.png" />
                 <div className="flex items-center">
                     <Tooltip target="tooltip-country" text={<T translation="flag_message" />} />
                     <img
                         src={correctFlag()}
-                        className="w-7 mr-5"
+                        className="w-8 mr-5"
                         id="tooltip-country"
                         data-tooltip-target="tooltip-country"
                     />

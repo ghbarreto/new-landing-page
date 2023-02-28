@@ -6,17 +6,17 @@ const textType = (type: TextType) => {
     const defaultTextType = `text-bg_dark dark:text-bg_white`;
     switch (type) {
         case 'header':
-            return `text-2xl font-bold ${defaultTextType}`;
+            return `text-2xl font-bold ${defaultTextType} mobile:text-base`;
         case 'body':
-            return `text-base ${defaultTextType}`;
+            return `text-base ${defaultTextType} mobile:text-sm`;
         case 'bold':
-            return `text-lg font-bold ${defaultTextType}`;
+            return `text-lg font-bold ${defaultTextType} mobile:text-sm`;
         case 'italic':
             return `text-sm font-italic ${defaultTextType}`;
         case 'footer':
-            return 'text-sm font-italic text-bg_white dark:text-bg_dark';
+            return 'text-sm font-italic text-bg_white dark:text-bg_dark mobile:text-sm';
         case 'link':
-            return 'text-highlight_400 dark:text-lightblue_600 cursor-pointer font-semibold';
+            return 'text-highlight_400 dark:text-lightblue_600 cursor-pointer font-semibold mobile:text-sm';
         default:
             return '';
     }

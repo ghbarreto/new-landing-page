@@ -88,8 +88,8 @@ app.post('/api/contribution/history', async (req, res) => {
         // remove last item in array (the date)
         body_item.pop();
 
-        body_item.forEach((item, index) => {
-            const is_header = item.match(/Created/g);
+        body_item.forEach((item, index, arr) => {
+            const is_header = item.match(/Created/g) && arr.length > 1;
 
             response = {
                 ...response,

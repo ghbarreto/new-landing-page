@@ -43,20 +43,12 @@ const { title } = Astro.props;
         </style>
         <script defer src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.js"></script>
     </head>
-    <body class="bg-bg_white dark:bg-bg_dark h-screen w-screen max-w-7xl mx-auto">
+    <body class="bg-bg_white dark:bg-bg_dark w-screen max-w-7xl mx-auto">
         <!-- rename body  -->
         <Body client:load>
             <main slot="body">
                 <Header client:load />
-                {
-                    isLoading || !data ? (
-                        <Loading />
-                    ) : (
-                        <section>
-                            <Card data={data} />
-                        </section>
-                    )
-                }
+                {isLoading || !data ? <Loading /> : <Card data={data} />}
                 {
                     !contributionData ? (
                         <Text text="There was an error reaching the server." />
@@ -64,9 +56,13 @@ const { title } = Astro.props;
                         <section class="flex justify-center mobile:ml-3">
                             <div>
                                 <span class="flex items-center text-sm mb-2">
-                                    <Text text={contributionData.last_year_contribution} customClasses="font-bold" />
-                                    <BsGithub className="text-highlight_600 dark:text-lightblue_300 ml-3" />
-                                    <Text text={'last_year_contribution'} customClasses="ml-1" />
+                                    <Text
+                                        type="body"
+                                        text={contributionData.last_year_contribution}
+                                        customClasses="font-bold"
+                                    />
+                                    <BsGithub className="text-highlight_400 dark:text-lightblue_600 ml-2" />
+                                    <Text type="body" text={'last_year_contribution'} customClasses="ml-1" />
                                 </span>
                                 <Contributions data={contributionData.contributions} />
                             </div>
@@ -75,7 +71,8 @@ const { title } = Astro.props;
                 }
                 <ContributionHistory client:load />
             </main>
-            <section slot="footer" class="w-full mr-4">
+
+            <section slot="footer">
                 <div class="flex justify-between">
                     <Tools />
                     <Social />

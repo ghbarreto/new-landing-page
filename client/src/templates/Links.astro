@@ -5,7 +5,7 @@ const { title, icon, href } = Astro.props;
 <a
     href={href}
     target="_blank"
-    class="w-26 bg-bg_dark hover:bg-highlight_400 text-white font-bold py-2 px-4 rounded-full inline-flex items-center dark:text-bg_dark dark:bg-white dark:hover:bg-lightblue_600"
+    class="w-26 bg-bg_dark transition ease-in-out delay-10 hover:bg-highlight_400 text-white font-bold py-2 px-4 rounded-full inline-flex items-center dark:text-bg_dark dark:bg-white dark:hover:bg-lightblue_600"
 >
     {title ? <span>{title}</span> : null}
     <i class={`${icon} ml-2 cursor-pointer`}></i>
