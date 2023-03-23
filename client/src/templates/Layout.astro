@@ -17,7 +17,7 @@ export interface Props {
 }
 // todo remove loading states since its a ssr app
 const { isLoading, data, err }: any = await fetchHelper('users');
-const { data: contributionData, error }: any = await fetchContributions('a');
+const { data: contributionData }: any = await fetchContributions('a');
 const { title } = Astro.props;
 ---
 
