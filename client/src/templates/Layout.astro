@@ -10,13 +10,12 @@ import Tools from './Tools.astro';
 import { ContributionHistory } from '../components/ContributionHistory';
 import { Text } from '../components/Text';
 import { BsGithub } from 'react-icons/bs';
-import { Tooltip } from '../components/Tooltip';
 
 export interface Props {
     title: string;
 }
 // todo remove loading states since its a ssr app
-const { isLoading, data, err }: any = await fetchHelper('users');
+const { isLoading, data }: any = await fetchHelper('users');
 const { data: contributionData }: any = await fetchContributions('a');
 const { title } = Astro.props;
 ---
