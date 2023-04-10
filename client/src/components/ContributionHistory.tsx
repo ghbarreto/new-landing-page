@@ -8,22 +8,36 @@ import { Text } from './Text';
 
 export const ContributionHistory = () => {
     const $square = useStore(square);
+    const [cached, setCached] = useState<{
+        [T: string]: {
+            [T: string]: string;
+        };
+    }>({});
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [data, setData] = useState<{
         [T: string]: string;
     }>();
+
     const [column, _remainder] = String(Number($square) / 7).split('.');
 
     useEffect(() => {
         if ($square) {
             (async () => {
+                if (Boolean(cached[String($square)])) {
+                    setData(cached[String($square)]);
+                    return;
+                }
+
                 setIsLoading(true);
                 const { data: contribution } = await fetchContributionHistory({
                     clicked_row: Number($square) % 7,
                     clicked_column: Number(column),
                 });
+
                 setIsLoading(false);
                 setData(contribution);
+                // @ts-ignore
+                setCached({ ...cached, [String($square)]: contribution });
             })();
         }
     }, [$square]);
