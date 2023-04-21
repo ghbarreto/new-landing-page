@@ -4,6 +4,7 @@
     "description": "",
     "main": "app.ts",
     "scripts": {
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
         "server": "nodemon app.ts",
         "client": "cd client && npm start",
         "start": "concurrently \"npm run server\" \"npm run client\"",
