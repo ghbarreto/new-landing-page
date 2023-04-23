@@ -6,12 +6,14 @@ import { Tooltip } from '../components/Tooltip';
 
 <span class="flex items-center">
     <a href="https://github.com/" class="cursor:pointer" data-tooltip-target={'tooltip-github'}>
-        <BsGithub className="text-bg_white dark:text-bg_dark w-6 h-6" />
+        <BsGithub
+            className="text-bg_white hover:text-highlight_400 dark:text-bg_dark w-6 h-6 dark:hover:text-lightblue_500"
+        />
         <Tooltip text="github" target="tooltip-github" />
     </a>
     <a href="https://github.com/" class="cursor:pointer">
         <AiFillLinkedin
-            className="text-bg_white dark:text-bg_dark ml-5 w-7 h-7"
+            className="text-bg_white dark:text-bg_dark hover:text-highlight_400 ml-5 w-7 h-7 dark:hover:text-lightblue_500"
             data-tooltip-target={'tooltip-linkedin'}
         />
         <Tooltip text="linkedin" target="tooltip-linkedin" />
