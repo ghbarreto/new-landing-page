@@ -22,7 +22,7 @@ export const fetchHelper = async (endpoint: string) => {
     return { isLoading, err, data };
 };
 
-export const fetchContributions = async (endpoint: string) => {
+export const fetchContributions = async () => {
     let err, data;
 
     await fetch(`http://localhost:3030/api/contributions`)
