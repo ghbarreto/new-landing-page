@@ -71,7 +71,7 @@ app.post('/api/contribution/history', async (req, res) => {
 
     await rect[clicked_row].click();
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1000);
 
     await page.$('#js-contribution-activity');
     await page.screenshot({ path: 'screenshot.png' });
