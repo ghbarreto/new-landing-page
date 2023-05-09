@@ -1,4 +1,6 @@
-export const Body = (props: any) => {
+import React from 'react';
+
+export const Container = (props: any) => {
     return (
         <section slot="body" className={'bg-bg_white dark:bg-bg_dark h-5/6 w-screen max-w-7xl mx-auto'}>
             {props.body}
