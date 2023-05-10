@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/**/*.astro",
+            "use": "@astrobuilder/astro",
+            "config": {
+                "quiet": false
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/pages/index.astro"
+        }
+    ]
+}

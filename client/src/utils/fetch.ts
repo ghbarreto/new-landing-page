@@ -5,7 +5,7 @@ export const fetchHelper = async (endpoint: string) => {
         err,
         data;
 
-    await fetch(`${import.meta.env.GITHUB_WEBSITE}${endpoint}/${import.meta.env.GITHUB_USER_NAME}`, {
+    await fetch(`https://api.github.com/${endpoint}/ghbarreto`, {
         method: 'GET',
         headers: { authorization: `token ${import.meta.env.GITHUB_TOKEN}` },
     })
@@ -25,7 +25,7 @@ export const fetchHelper = async (endpoint: string) => {
 export const fetchContributions = async () => {
     let err, data;
 
-    await fetch(`https://portfolio-api-one.vercel.app/api/contributions`)
+    await fetch(`${import.meta.env.URL}/api/contributions`)
         .then(async res => {
             const retrievedData = await res.json();
             return (data = retrievedData);

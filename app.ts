@@ -1,5 +1,6 @@
 import { Parser } from './utils/parser';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import { chromium } from 'playwright-core';
 
 import type { Contributions, GitInfo } from './types';
 
@@ -57,12 +58,13 @@ app.get('/api/contributions', async (_req, res) => {
 app.post('/api/contribution/history', async (req, res) => {
     const clicked_column = req.body.clicked_column;
     const clicked_row = req.body.clicked_row;
-    const browser = await puppeteer.launch({
+    const browser = await chromium.launch({
         args: [`--window-size=1920,1080`],
         defaultViewport: {
             width: 1920,
             height: 1080,
         },
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     });
     const page = await browser.newPage();
 

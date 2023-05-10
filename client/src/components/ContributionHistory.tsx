@@ -5,6 +5,7 @@ import { Loading } from './Loading';
 import { square } from '../store/square';
 import { fetchContributionHistory } from '../utils/fetch';
 import { Text } from './Text';
+import React from 'react';
 
 export const ContributionHistory = () => {
     const $square = useStore(square);
@@ -58,7 +59,7 @@ export const ContributionHistory = () => {
                                     : '';
 
                             return (
-                                <div className={`ml-3 p-4 m-2 ${verticalBorder}`}>
+                                <div className={`ml-3 p-4 m-2 ${verticalBorder}`} key={`contributions-${index}`}>
                                     {Object.entries(e).map(v => {
                                         const [key, value] = v;
                                         const isHeader = key.split('_')[0] === 'header';
