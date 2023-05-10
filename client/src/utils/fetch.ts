@@ -25,12 +25,13 @@ export const fetchHelper = async (endpoint: string) => {
 export const fetchContributions = async () => {
     let err, data;
 
-    await fetch(`http://localhost:3030/api/contributions`)
+    await fetch(`https://portfolio-api-one.vercel.app/api/contributions`)
         .then(async res => {
             const retrievedData = await res.json();
             return (data = retrievedData);
         })
         .catch(error => {
+            console.log(error);
             return (err = error);
         });
 
