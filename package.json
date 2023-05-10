@@ -5,10 +5,11 @@
     "main": "app.ts",
     "scripts": {
         "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "install-dev": " npm install && cd client && npm install",
         "server": "nodemon app.ts",
         "client": "cd client && npm start",
         "start": "nodemon app.ts",
-        "install": "npm install && cd client && npm install"
+        "install": "npm install"
     },
     "author": "",
     "license": "ISC",
