@@ -11,6 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send({ text: 'worked' });
+});
+
 app.get('/api/contributions', async (_req, res) => {
     const git = new Parser();
     const endpoint = 'https://github.com/ghbarreto';
