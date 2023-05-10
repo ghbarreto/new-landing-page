@@ -8,8 +8,7 @@
         "install-dev": "npm install && cd client && npm install",
         "server": "nodemon app.ts",
         "client": "cd client && npm start",
-        "start": "nodemon app.ts",
-        "install": "npm install"
+        "start": "nodemon app.ts"
     },
     "author": "",
     "license": "ISC",
