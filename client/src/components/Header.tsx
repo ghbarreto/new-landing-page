@@ -2,6 +2,7 @@ import { useTranslation } from '../hooks/use-lang';
 import { useTheme } from '../hooks/use-theme';
 import { Tooltip } from './Tooltip';
 import { T } from '../lang';
+import React from 'react';
 
 export const Header = () => {
     const { setIsDarkMode } = useTheme();

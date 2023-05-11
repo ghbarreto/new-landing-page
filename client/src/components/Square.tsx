@@ -1,5 +1,6 @@
 import { colorHelper } from '../utils/color_helper';
 import { square } from '../store/square';
+import React from 'react';
 
 export const Square = ({ index, value, isDesktop }: any) => {
     const hideMobile = !isDesktop ? 'mobile:hidden' : '';

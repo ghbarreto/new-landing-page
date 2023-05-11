@@ -1,3 +1,4 @@
+import React from 'react';
 import { T } from '../lang';
 
 type TextType = 'bold' | 'header' | 'italic' | 'header' | 'link' | 'footer' | 'body';

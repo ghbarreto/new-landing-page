@@ -1,3 +1,4 @@
+import React from 'react';
 import { T } from '../lang';
 
 export const Tooltip = ({ text, target }: { text: React.ReactElement | string; target: string }) => {
