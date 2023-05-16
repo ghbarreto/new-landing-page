@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send({ text: 'worked' });
+    res.send({ text: 'api route' });
 });
 
 app.get('/api/contributions', async (_req, res) => {
