@@ -6,6 +6,7 @@ import type { Contributions, GitInfo } from './types';
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const PORT = 3030;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -110,6 +111,6 @@ app.post('/api/contribution/history', async (req, res) => {
     res.status(200).send(response);
 });
 
-app.listen(3030, () => {
-    console.log(`Example app listening at http://localhost:3030`);
+app.listen(PORT, () => {
+    console.log(`Example app listening at http://localhost:${PORT}`);
 });
