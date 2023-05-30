@@ -1,5 +1,6 @@
 import { Parser } from './utils/parser';
-import puppeteer from 'puppeteer';
+import chrome from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer-core';
 
 import type { Contributions, GitInfo } from './types';
 
@@ -58,12 +59,16 @@ app.get('/api/contributions', async (_req, res) => {
 app.post('/api/contribution/history', async (req, res) => {
     const clicked_column = req.body.clicked_column;
     const clicked_row = req.body.clicked_row;
-    const browser = await puppeteer.launch({
-        args: [`--window-size=1920,1080`],
+
+    const browser = await chrome.puppeteer.launch({
+        args: ['--hide-scrollbars', '--disable-web-security', '`--window-size=1920,1080`'],
         defaultViewport: {
             width: 1920,
             height: 1080,
         },
+        executablePath: await chrome.executablePath,
+        headless: true,
+        ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
 
